@@ -5,3 +5,8 @@ duckgo-search
 python-multipart
 uvicorn
 fastapi
+uvicorn[standard]
+requests
+faster-whisper
+duckgo-search
+python-multipart

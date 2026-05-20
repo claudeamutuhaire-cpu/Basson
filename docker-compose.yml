@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    ports:
+      - "8080:8080"
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - WEBUI_SECRET_KEY=change-this-to-something-random
+    volumes:
+      - open-webui:/app/backend/data
+    depends_on:
+      - ollama
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+    restart: unless-stopped
+    # Uncomment below if you have NVIDIA GPU on PC
+    # deploy:
+    # resources:
+    # reservations:
+    # devices:
+    # - driver: nvidia
+    # count: all
+    # capabilities: [gpu]
+
+volumes:
+  open-webui:
+  ollama:

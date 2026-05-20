@@ -1,0 +1,7 @@
+open-webui
+faster-whisper
+piper-tts
+duckgo-search
+python-multipart
+uvicorn
+fastapi
